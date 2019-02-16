@@ -22,6 +22,12 @@ Compilation takes time, you can inspect the logs for more details at `~/Library/
 
 You should now be able to run Scantailor from the command-line : `scantailor`
 
+You can get the bleeding edge instead of a released version with the `--HEAD` flag :
+
+```
+brew install --HEAD ./scantailor.rb
+```
+
 ## Bundling your binary
 To use the bundler, you need the fish shell (`brew install fish`) and the utility [macdeployqt](https://doc.qt.io/qt-5.9/osx-deployment.html) to do the linking. Simply run `bundler/scantailor_bundler.command`
 
