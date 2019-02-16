@@ -25,6 +25,5 @@ plutil -convert binary1 "$plist"
 echo "INFO - copying and relinking the binary…"
 cp (which scantailor) "$TARGET/Contents/MacOS/ScanTailor"
 macdeployqt "$TARGET" -dmg
-echo "INFO - cleaning up…"
-rm -Rf "$TARGET"
+
 echo "INFO - DONE ! (the App bundle is in the *.DMG file)"
