@@ -20,11 +20,11 @@ class Scantailor < Formula
   depends_on "cmake" => :build
   
   def install
-    vtag="#release"
+    vtag="#release (build #{Time.now.utc.strftime("%Y%m%d")})"
     if build.devel?
-      vtag = "#develop@HEAD (#{Time.now.utc.strftime("%Y%m%d")})"
+      vtag = "#develop@HEAD (build #{Time.now.utc.strftime("%Y%m%d")})"
     elsif build.head?
-      vtag = "#master@#{version} (#{Time.now.utc.strftime("%Y%m%d")})"
+      vtag = "#master@#{version} (build #{Time.now.utc.strftime("%Y%m%d")})"
     end
     if File.file?("version.h.in")
       ohai "Setting versioning tag to #{vtag}"
