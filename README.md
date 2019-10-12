@@ -35,6 +35,10 @@ brew install --devel ./scantailor.rb
 ```
 
 ## Bundling your binary
-To use the bundler, you need the fish shell (`brew install fish`) and the utility [macdeployqt](https://doc.qt.io/qt-5.9/osx-deployment.html) to do the linking. Simply run `bundler/scantailor_bundler.command`
+To use the bundler, you need the fish shell (`brew install fish`) and the utility [macdeployqt](https://doc.qt.io/qt-5.9/osx-deployment.html) to do the linking. 
+
+1. make sure that QT is correctly linked : `brew link --force qt5`
+2. add the QT bin folder to your fish path : `echo 'set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths' >> ~/.config/fish/config.fish`
+3. Simply run `bundler/scantailor_bundler.command` (you may have to `chmod 755 bundler/scantailor_bundler.command`)
 
 The bundler script will use the scantailor binary which is in your shell path (the value printed out by `which scantailor`).
