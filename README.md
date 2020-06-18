@@ -28,12 +28,6 @@ You can get the bleeding edge instead of a released version with the `--HEAD` fl
 brew install --HEAD ./scantailor.rb
 ```
 
-For the adventurous, you can also build from the head of the #develop branch (instead of #master) with the `--devel` flag :
-
-```
-brew install --devel ./scantailor.rb
-```
-
 ## Bundling your binary
 To use the bundler, you need the fish shell (`brew install fish`) and the utility [macdeployqt](https://doc.qt.io/qt-5.9/osx-deployment.html) to do the linking. 
 
