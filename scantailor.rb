@@ -7,10 +7,6 @@ class Scantailor < Formula
 
   head "https://github.com/4lex4/scantailor-advanced.git", :branch => "master"
   
-	devel do
-		url "https://github.com/4lex4/scantailor-advanced.git", :branch => "develop"
-		version "DEVEL"
-	end
   depends_on "boost"
   depends_on "qt5"
   depends_on "libtiff" 
@@ -21,9 +17,7 @@ class Scantailor < Formula
   
   def install
     vtag="#release (build #{Time.now.utc.strftime("%Y%m%d")})"
-    if build.devel?
-      vtag = "#develop@HEAD (build #{Time.now.utc.strftime("%Y%m%d")})"
-    elsif build.head?
+    if build.head?
       vtag = "#master@#{version} (build #{Time.now.utc.strftime("%Y%m%d")})"
     end
     if File.file?("version.h.in")
