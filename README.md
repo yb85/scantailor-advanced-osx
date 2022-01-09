@@ -1,6 +1,11 @@
 # scantailor-advanced-osx
 Homebrew formula and App bundler for Scantailor (Advanced)
 
+> :warning: The latest release from the original project page does not work with the actual version of QT. However the `head` of the repo patches the issue.
+>
+> So, you should use the `--HEAD` flag
+
+
 See [4lex4/scantailor-advanced](https://github.com/4lex4/scantailor-advanced) for the original project.
 
 **Look at the [Releases](https://github.com/yb85/scantailor-advanced-osx/releases) section for a bundled App (Mojave_x64).**
