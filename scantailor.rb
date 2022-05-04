@@ -1,14 +1,15 @@
 class Scantailor < Formula
   desc "Scantailor (Advanced) : bookscan images processor"
-  homepage "https://github.com/4lex4/scantailor-advanced"
+  homepage "https://github.com/vigri/scantailor-advanced"
   
-  url "https://github.com/4lex4/scantailor-advanced/archive/v1.0.16.tar.gz"
-  sha256 "84629d2edba4c36c62bdb75eedb145262b894d950bcb95cec0dab43e21bdb909"
+  url "https://github.com/vigri/scantailor-advanced/archive/refs/tags/v1.0.18.tar.gz"
+  sha256 "1daa21e8455bcf3c6f8807c1a025fd9c43c073a4a32193892b36e9c9610d4729"
+  version "1.0.18"
 
-  head "https://github.com/4lex4/scantailor-advanced.git", :branch => "master"
+  head "https://github.com/vigri/scantailor-advanced.git"
   
   depends_on "boost"
-  depends_on "qt5"
+  depends_on "qt6"
   depends_on "libtiff" 
   depends_on "libpng" 
   depends_on "jpeg" 
@@ -16,7 +17,7 @@ class Scantailor < Formula
   depends_on "cmake" => :build
   
   def install
-    vtag="#release (build #{Time.now.utc.strftime("%Y%m%d")})"
+    vtag="#release@#{version} (build #{Time.now.utc.strftime("%Y%m%d")})"
     if build.head?
       vtag = "#master@#{version} (build #{Time.now.utc.strftime("%Y%m%d")})"
     end

@@ -3,12 +3,11 @@
 # to install fish :
 #    > brew install fish
 #
-# WARNING you need to properly link homebrew qt5 installation :
+# WARNING you need to have Qt6 installed and properly linked, as of feb 2022 :
 #    > brew install qt
-#    > brew link --force qt5
-#
-# Then add it to the fish-shell path (follow the instructions on screen) : 
-#    > echo 'set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths' >> ~/.config/fish/config.fish
+# or 
+#    > brew install qt@6
+
 
 cd (dirname (status --current-filename))
 
@@ -29,7 +28,7 @@ cp -R "$TEMPLATE" "$TARGET"
 #update the plist and compile it
 echo "INFO - updating the bundle PLIST…"
 set plist "$TARGET/Contents/Info.plist"
-sed -i '' -e "s/\${Name}/$NAME/g" -e "s/\${Version}/$Version/g" -e "s/\${BundleVersion}/$BUNDLE_VERSION/"  $plist
+set LC_CTYPE C && set LANG C && sed -i '' -e "s/\${Name}/$NAME/g" -e "s/\${Version}/$Version/g" -e "s/\${BundleVersion}/$BUNDLE_VERSION/"  $plist
 plutil -convert binary1 "$plist"
 
 echo "INFO - copying the binary…"
@@ -42,8 +41,16 @@ mkdir -p "$RELTRDIR"
 cp (dirname (which scantailor))/$RELTRDIR/*.qm "$RELTRDIR"
 popd
 
-echo "INFO - relinking the binary and DMG packaging…"
+echo "INFO - relinking the binary …"
 chmod 755 "$TARGET/Contents/MacOS/ScanTailor"
-macdeployqt "$TARGET" -dmg
+set qtprefix (brew --prefix qt)
 
-echo "INFO - DONE ! (the App bundle is in the *.DMG file)"
+$qtprefix/bin/macdeployqt  "$TARGET"  -libpath="$qtprefix/lib"
+
+#DIRTY FIX FOR @rpath LINKING ISSUE
+cp -R $qtprefix/lib/QtDBus.framework "$TARGET/Contents/Frameworks"
+set dbuslib (otool -L "$TARGET/Contents/Frameworks/QtDBus.framework/Versions/A/QtDBus" | grep -Eo "^.*/libdbus-[0-9.]+.dylib" | xargs)
+cp "$dbuslib" "$TARGET/Contents/Frameworks/"(basename $dbuslib)
+install_name_tool -change "$dbuslib" "@executable_path/../Frameworks/"(basename $dbuslib) "$TARGET/Contents/Frameworks/QtDBus.framework/Versions/A/QtDBus"
+
+echo "INFO - DONE ! "

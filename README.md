@@ -1,16 +1,27 @@
 # scantailor-advanced-osx
-Homebrew formula and App bundler for Scantailor (Advanced)
+Homebrew formula and App bundler for Scantailor (Advanced). Now uses Qt6 framework.
 
-> **:warning: The latest release from the original project page does not work with the actual version of QT. However the `head` of the repo patches the issue.**
->
-> **ALWAYS USE THE `--HEAD` FLAG**
 
 
 See [4lex4/scantailor-advanced](https://github.com/4lex4/scantailor-advanced) for the original project.
+The project seems to be abandoned, this formula now fetches from the fork [vigri/scantailor-advanced](https://github.com/vigri/scantailor-advanced)
 
-**Look at the [Releases](https://github.com/yb85/scantailor-advanced-osx/releases) section for a bundled App (Mojave_x64).**
+**Look at the [Releases](https://github.com/yb85/scantailor-advanced-osx/releases) section for a bundled App (Monterey_x64).**
 
-## Installing via homebrew
+## Installing via homebrew ##
+
+### Install script ###
+
+All automated, execute in your terminal :
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/yb85/scantailor-advanced-osx/HEAD/install.sh)"
+```
+
+This script tries to install `brew` and `git` if missing. It may ask you to install the command-line developper tools.
+If both these utilities are present, it clones this repository and install the homebrew formula. 
+
+### Manual Install  ###
+
 
 1. clone the repository
 ```
@@ -34,7 +45,7 @@ brew install --HEAD ./scantailor.rb
 ```
 
 ## Bundling your binary
-To use the bundler, you need the fish shell (`brew install fish`) and the utility [macdeployqt](https://doc.qt.io/qt-5.9/osx-deployment.html) to do the linking. 
+To use the bundler, you need the fish shell (`brew install fish`) and the utility macdeployqt to do the linking (installed with qt6). 
 
 1. make sure that QT is correctly linked : `brew link --force qt5`
 2. add the QT bin folder to your fish path : `echo 'set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths' >> ~/.config/fish/config.fish`
