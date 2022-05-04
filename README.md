@@ -18,7 +18,14 @@ All automated, execute in your terminal :
 ```
 
 This script tries to install `brew` and `git` if missing. It may ask you to install the command-line developper tools.
-If both these utilities are present, it clones this repository and install the homebrew formula. 
+If both these utilities are present, it clones this repository and install the homebrew formula.
+
+To install the `HEAD` and not the latest release run
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/yb85/scantailor-advanced-osx/HEAD/install.sh)" install --HEAD
+
+```
 
 ### Manual Install  ###
 
@@ -47,7 +54,7 @@ brew install --HEAD ./scantailor.rb
 ## Bundling your binary
 To use the bundler, you need the fish shell (`brew install fish`) and the utility macdeployqt to do the linking (installed with qt6). 
 
-1. make sure that QT is correctly linked : `brew link --force qt5`
+1. make sure that QT is correctly linked : `brew link --force qt6`
 2. add the QT bin folder to your fish path : `echo 'set -g fish_user_paths "/usr/local/opt/qt/bin" $fish_user_paths' >> ~/.config/fish/config.fish`
 3. Simply run `bundler/scantailor_bundler.command` (you may have to `chmod 755 bundler/scantailor_bundler.command`)
 
