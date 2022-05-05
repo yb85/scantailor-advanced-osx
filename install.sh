@@ -38,7 +38,7 @@ fi
 temp_dir="$(mktemp -d)" && \
     git clone "https://github.com/yb85/scantailor-advanced-osx.git" "${temp_dir}" && \
     cd "${temp_dir}/" && \
-    brew install $1 ./scantailor.rb && \
+    brew install --formula $1 ./scantailor.rb && \
     echo "$pref Succesfuly installed SCANTAILOR, done."
 
 

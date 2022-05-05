@@ -39,7 +39,7 @@ cd ./scantailor-advanced-osx
 2. with [homebrew](https://brew.sh) installed and updated, run :
 
 ```
-brew install ./scantailor.rb
+brew install --formula ./scantailor.rb
 ```
 Compilation takes time, you can inspect the logs for more details at `~/Library/Logs/Homebrew/scantailor` with OS X Console.
 
@@ -48,7 +48,7 @@ You should now be able to run Scantailor from the command-line : `scantailor`
 You can get the bleeding edge instead of a released version with the `--HEAD` flag :
 
 ```
-brew install --HEAD ./scantailor.rb
+brew install --formula --HEAD ./scantailor.rb
 ```
 
 ## Bundling your binary
