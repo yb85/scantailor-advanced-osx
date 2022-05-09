@@ -1,5 +1,5 @@
 # Scantailor Advanced MacOS edition
-![scantailor-advanced-osx](scantailor-advanced-osx.png "Scantailor Advanced (MACOS edition)")
+![scantailor-advanced-osx](scantailor-advanced-osx.png "Scantailor Advanced (MACOS edition)" | width=480)
 
 ## Download the app
 
