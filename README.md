@@ -6,7 +6,7 @@ Homebrew formula and App bundler for Scantailor (Advanced). Now uses Qt6 framewo
 See [4lex4/scantailor-advanced](https://github.com/4lex4/scantailor-advanced) for the original project.
 The project seems to be abandoned, this formula now fetches from the fork [vigri/scantailor-advanced](https://github.com/vigri/scantailor-advanced)
 
-**Look at the [Releases](https://github.com/yb85/scantailor-advanced-osx/releases) section for a bundled App (Monterey_x64).**
+**Look at the [Releases](https://github.com/yb85/scantailor-advanced-osx/releases) section for a bundled App (macos12 Monterey x64 and macos10 Catalina x64).**
 
 ## Installing via homebrew ##
 
