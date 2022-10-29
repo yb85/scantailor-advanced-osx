@@ -28,6 +28,9 @@ class Scantailor < Formula
       ohai "Setting versioning tag to #{vtag}"
       inreplace "version.h", /#define VERSION "([^"]*)"/, "#define VERSION \"\\1#{vtag}\""
     end
+    
+    inreplace "src/foundation/Proximity.h", "#include <limits>", "#include <limits>\n#include <algorithm>"
+    
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
       system "make"
