@@ -30,6 +30,7 @@ class Scantailor < Formula
     end
     
     inreplace "src/foundation/Proximity.h", "#include <limits>", "#include <limits>\n#include <algorithm>"
+    inreplace "src/core/Utils.h", "#include <QString>", "#include <QString>\n#include <QObject>"
     
     mkdir "build" do
       system "cmake", "..", *std_cmake_args
